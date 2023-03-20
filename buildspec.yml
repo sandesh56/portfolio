@@ -1,0 +1,13 @@
+version: 0.1
+
+phases:
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - npm run build
+  post_build:
+    commands:
+      - aws s3 cp --recursive ./build s3://www.sandeshportfolio/
+      - aws cloudfront creat-invalidation --distribution-id E16E9OEDH9PT52 --path /\*
