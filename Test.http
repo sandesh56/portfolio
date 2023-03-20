@@ -1,0 +1,13 @@
+GET https://i1vevey3h9.execute-api.us-east-1.amazonaws.com/v1/portfolio
+
+###
+POST  https://i1vevey3h9.execute-api.us-east-1.amazonaws.com/v1/portfolio/mail
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+    "email": "test",
+    "phone":"",
+    "subject": "test",
+    "message": "test"
+}
