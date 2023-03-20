@@ -3,11 +3,15 @@ version: 0.1
 phases:
   pre_build:
     commands:
-- yarn install
+      - yarn install
+
+
 
   build:
     commands:
-- yarn run build
+      - yarn run build
+
+
 
   post_build:
     commands:
