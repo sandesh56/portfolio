@@ -1,11 +1,12 @@
 version: 0.1
 
 phases:
+  install:
+    runtime_environments:
+      nodejs:18
   pre_build:
     commands:
       - yarn install
-
-
 
   build:
     commands:
@@ -15,5 +16,13 @@ phases:
 
   post_build:
     commands:
-      - aws s3 cp --recursive ./build s3://www.sandeshportfolio/
-      - aws cloudfront creat-invalidation --distribution-id E16E9OEDH9PT52 --path /\*
+      - aws s3 cp --recursive --acl public-read ./build s3://sandeshportfolio/
+      - aws s3 cp --acl public-read --cache-control="max-age=0, no-cache, no-store, must-revalidate" ./build/index.html s3://sandeshportfolio/
+      - aws cloudfront create-invalidation --distribution-id E16E9OEDH9PT52 --paths /index.html
+
+artifacts:
+  files:
+    - 'build/*'
+    - 'build/**/*'
+
+
