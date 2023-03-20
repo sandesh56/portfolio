@@ -11,6 +11,7 @@ import {
 import { Article } from 'types/article'
 
 const DevToArticles = ({ articles }: { articles: Article[] }) => {
+  console.log(articles)
   const bg = useColorModeValue('blackAlpha.50', 'whiteAlpha.100')
   const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.100')
   const alphaHover = useColorModeValue(

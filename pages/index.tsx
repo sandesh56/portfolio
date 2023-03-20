@@ -17,7 +17,7 @@ import Experience from 'components/Sections/Experience'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
 import { Article } from 'types/article'
-import { getData } from 'services/api/data'
+import { getBlogData, getData } from 'services/api/data'
 import { useRef } from 'react'
 const DevToArticles = dynamic(() => import('components/Sections/DevToArticles'))
 import GetInTouch from 'components/Sections/GetInTouch'
@@ -162,9 +162,8 @@ const Portfolio = ({ articles, data }: { articles: Article[], data: any }): JSX.
   )
 }
 export async function getStaticProps() {
-  const res = await fetch('https://dev.to/api/articles?username=sandesh56');
+  const articles = await getBlogData();
   const data = await getData();
-  const articles = await res.json()
   return {
     props: {
       articles,
