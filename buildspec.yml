@@ -2,8 +2,9 @@ version: 0.1
 
 phases:
   install:
-    runtime_environments:
+    runtime-versions:
       nodejs:18
+      
   pre_build:
     commands:
       - yarn install
