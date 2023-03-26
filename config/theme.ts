@@ -87,6 +87,22 @@ const theme = extendTheme({
     Heading: {
       variants: textVariants,
     },
+    Tabs: {
+      variants: {
+        enclosed: (props) => ({
+          tab: {
+          _selected: {
+            color: mode('teal.500', 'cyan.200')(props),
+            borderBottomColor: "#121212",
+            borderShadow: 'none',    
+            },
+            _focus: {
+              boxShadow: "none",
+            },
+         }
+        })
+      }
+    },
     Button: {
       variants: {
         outline: (props) => ({

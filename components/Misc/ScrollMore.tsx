@@ -126,15 +126,14 @@ const ScrollMore:React.FC<IProps> = ({scrollToTop}) => {
               _after={{
                 backgroundColor: emailLine,
                 width: '5px',
-                opacity: 0.5,
+                opacity: 1,
                 content: '""',
                 flex: 1,
                 height: { base: '5em', xl: '8em' },
                 margin: 'auto',
-                marginTop: '10px',
               }}
             >
-             Scroll to top
+              <Icon as={ImArrowUp} color={emailLine} />
             </Text>
           </motion.div>
         )}

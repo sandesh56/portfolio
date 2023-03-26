@@ -13,7 +13,6 @@ import Menu from 'components/Menu'
 import Sidebar from 'components/Sidebar'
 import Avatar from 'components/Avatar'
 import About from 'components/Sections/About'
-import Experience from 'components/Sections/Experience'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
 import { Article } from 'types/article'
@@ -22,6 +21,7 @@ import { useRef } from 'react'
 const DevToArticles = dynamic(() => import('components/Sections/DevToArticles'))
 import GetInTouch from 'components/Sections/GetInTouch'
 import Skills from 'components/Sections/Skills'
+import ExperienceAndEducationTab from 'components/Sections/ExperienceAndEducationTab'
 
 const Portfolio = ({ articles, data }: { articles: Article[], data: any }): JSX.Element => {
   const sideBarPadding = useBreakpointValue({ base: '5', md: '8', lg: '14' })
@@ -33,6 +33,11 @@ const Portfolio = ({ articles, data }: { articles: Article[], data: any }): JSX.
   })
   const paddTop = useBreakpointValue({ base: '20', sm: 20, md: 20,lg:20 })
   const topRef = useRef(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const jobRef = useRef<HTMLDivElement>(null);
+  const worksRef = useRef<HTMLDivElement>(null);
+  const blogRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   const scrollToTop = () => {
     topRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -42,7 +47,7 @@ const Portfolio = ({ articles, data }: { articles: Article[], data: any }): JSX.
     <>
       <Box ref={topRef} />
       <OpenGraphHead />
-      <Menu />
+      <Menu skillsRef={skillsRef} jobsRef={jobRef} workRef={worksRef} blogRef={blogRef} contactRef={contactRef} />
       <Grid
         id="mainGrid"
         templateColumns={{
@@ -102,6 +107,7 @@ const Portfolio = ({ articles, data }: { articles: Article[], data: any }): JSX.
                 paddingBottom={{ base: 12, lg: 10 }}
                 paddingX={0}
                 flexDirection={'row'}
+                ref={skillsRef}
               >
                 <Skills data={data?.result} /> 
               </Box>
@@ -114,8 +120,9 @@ const Portfolio = ({ articles, data }: { articles: Article[], data: any }): JSX.
                 paddingBottom={{ base: 12, lg: 10 }}
                 paddingX={0}
                 flexDirection={'row'}
+                ref={jobRef}
               >
-                <Experience data={data?.result} />
+                <ExperienceAndEducationTab data={data?.result} />
               </Box>
             </FadeInLayout>
              <FadeInLayout>
@@ -126,6 +133,7 @@ const Portfolio = ({ articles, data }: { articles: Article[], data: any }): JSX.
                 paddingBottom={{ base: 12, lg: 10 }}
                 paddingX={0}
                 flexDirection={'row'}
+                ref={worksRef}
               >
                 <FeaturedWorks data={data?.result} /> 
               </Box>
@@ -138,6 +146,7 @@ const Portfolio = ({ articles, data }: { articles: Article[], data: any }): JSX.
                 paddingBottom={{ base: 12, lg: 10 }}
                 paddingX={0}
                 flexDirection={'row'}
+                 ref={blogRef}
               >
                 <DevToArticles articles={articles} />
               </Box>
@@ -150,8 +159,9 @@ const Portfolio = ({ articles, data }: { articles: Article[], data: any }): JSX.
                 paddingBottom={{ base: 12, lg: 10,xl:10 }}
                 paddingX={0}
                 flexDirection={'row'}
+                ref={contactRef}
               >
-                <GetInTouch />
+                <GetInTouch  />
               </Box>
             </FadeInLayout>
           </Stack>

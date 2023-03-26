@@ -60,7 +60,6 @@ const Menu = () => {
         maxWidth="100vw"
         margin={0}
       >
-        <Logo />
         <Navigation />
       </Container>
     </motion.div>

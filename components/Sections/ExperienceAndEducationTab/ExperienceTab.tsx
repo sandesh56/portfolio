@@ -27,7 +27,7 @@ import React from 'react'
 interface IProps{
   data:any
 }
-const ExperienceTab:React.FC<IProps> = ({data}) => {
+const ExperienceTab: React.FC<IProps> = ({ data }) => {
   const { colorMode } = useColorMode()
   const emphasis = useColorModeValue('teal.500', 'cyan.200')
   const borderColor = useColorModeValue('gray.300', 'gray.600')
@@ -108,7 +108,7 @@ const ExperienceTab:React.FC<IProps> = ({data}) => {
                     fontSize="lg"
                     fontWeight="bold"
                   >
-                    #{company.company}
+                    {company.company}
                   </Link>
                 </Text>
                 <Text fontSize="smaller">{company.year}</Text>

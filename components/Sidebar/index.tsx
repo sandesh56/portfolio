@@ -46,7 +46,7 @@ const Sidebar:React.FC<IProps> = ({data}) => {
       maxWidth={{ xl: '34%' }}
       top={{ lg: 0 }}
     >
-      <motion.div
+      {/* <motion.div
         id="sidebarCircle"
         className={`${styles.sidebar} ${
           colorMode === 'light' ? styles.dark : ''
@@ -54,7 +54,7 @@ const Sidebar:React.FC<IProps> = ({data}) => {
         variants={scaleUp}
         style={{ display: display }}
         animate={colorMode === 'dark' ? 'animate' : 'lightMode'}
-      ></motion.div>
+      ></motion.div> */}
       <Container
         padding={0}
         margin={0}
@@ -70,6 +70,14 @@ const Sidebar:React.FC<IProps> = ({data}) => {
             fontWeight="light"
           >
             Hi there!
+          </MotionText>
+          <MotionText
+            colorScheme="gray"
+            fontSize="smaller"
+            className={styles.marginTopForce}
+            variants={fadeInUp}
+          >
+            It's me
           </MotionText>
           <MotionHeading
             as="h1"

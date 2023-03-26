@@ -11,8 +11,8 @@ import { useEffect } from 'react'
 import { avatarAnimation } from 'config/animations'
 
 const AvatarImages = {
-  DarkMode: '/avatar_light.jpeg',
-  LightMode: './avatar_dark.jpeg',
+  DarkMode: '/avatar_light.png',
+  LightMode: './avatar_dark.png',
 }
 
 declare global {
@@ -54,6 +54,7 @@ const Avatar = () => {
           alt="Sandesh Image"
           htmlWidth="250"
           htmlHeight="250"
+          borderRadius="10"
           margin="auto"
           fallback={<SkeletonCircle height="100%" width="100%" />}
         />
