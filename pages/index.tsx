@@ -47,7 +47,7 @@ const Portfolio = ({ articles, data }: { articles: Article[], data: any }): JSX.
     <>
       <Box ref={topRef} />
       <OpenGraphHead />
-      <Menu skillsRef={skillsRef} jobsRef={jobRef} workRef={worksRef} blogRef={blogRef} contactRef={contactRef} />
+      <Menu/>
       <Grid
         id="mainGrid"
         templateColumns={{
